@@ -1,4 +1,4 @@
-from database import Base, engine
-import models.message  # Import additional models as needed
+from app.database import Base
+from app.database import engine
 
-Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(engine)

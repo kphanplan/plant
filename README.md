@@ -21,16 +21,15 @@ python -m venv env
 For Windows:
 
 bash
-Copy code
 env\Scripts\activate
 For macOS/Linux:
 
 bash
-Copy code
 source env/bin/activate
+
 Install the required dependencies:
-Copy code
 pip install -r requirements.txt
+
 Running the application locally
 Start the FastAPI server:
 css

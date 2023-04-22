@@ -1,4 +1,7 @@
 env/
+.env
+heroku_config.py
 *.pyc
 *.pyo
 *.pyd
+init_db.py
