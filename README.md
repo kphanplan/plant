@@ -55,4 +55,20 @@ Copy code
 heroku container:release web --app kplant
 Your changes should now be reflected in the Heroku application.
 
-Save this content as README.md in the root folder of your project. This file will be rendered by GitHub and displayed on the main page of your repository.
+
+Database Migrations
+This project uses Alembic for handling database migrations. Here's a guide to managing migrations:
+
+Setting Up Alembic
+Install Alembic using pip: pip install alembic
+Run alembic init alembic to create a new Alembic configuration in your project.
+Creating a New Migration
+Make changes to your SQLAlchemy models in your FastAPI application.
+Run alembic revision --autogenerate -m "Your migration message" to create a new migration file with the changes detected from your models.
+Review the generated migration file in the alembic/versions directory and make any necessary adjustments to the upgrade() and downgrade() functions.
+Applying Migrations
+To apply pending migrations, run alembic upgrade head. This command will upgrade your database schema to the latest version.
+Rolling Back Migrations
+To undo the last applied migration, run alembic downgrade -1. This command will downgrade your database schema by one version.
+Viewing Migration History
+To view the migration history and the current status of your database schema, run alembic history --verbose.

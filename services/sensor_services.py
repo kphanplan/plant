@@ -1,8 +1,13 @@
+import httpx
+
 async def fetch_sensor_data():
-    sample_data = {
-        "soilMoisture": 350,
-        "humidity": 45.0,
-        "temperature": 24.5,
-        "motionDetected": False
-    }
-    return sample_data
+    url = "http://your_microcontroller_api_url"
+    try:
+        response = await httpx.get(url)
+        response.raise_for_status()
+        data = response.json()
+    except httpx.HTTPError as e:
+        print(f"An error occurred while requesting sensor data: {e}")
+        data = {}  # You can return an empty dictionary or provide default values as a fallback
+
+    return data
